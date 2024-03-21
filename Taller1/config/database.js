@@ -25,9 +25,10 @@ const initializeData = async () => {
 
         const usersData = [
             {
-                name: 'Juan',
-                email: 'juan@gmail.com',
-                password: 'Londres',
+                Subject: String,
+                id_Student: String,
+                Description: String,
+                grade: Number
             },
             {
                 name: 'Adriana',
