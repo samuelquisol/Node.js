@@ -22,7 +22,6 @@ const connectDatabase = async () => {
 };
 
 // Se define una función asíncrona llamada initializeData, que se encarga de borrar todos los documentos de la colección User y de insertar algunos datos de ejemplo en la base de datos
-
 const initializeData = async () => {
     try {
         await User.deleteMany(); 

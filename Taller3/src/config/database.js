@@ -9,7 +9,7 @@ const connectedDB = async () => {
             Teacher = mongoose.model('teachers', require('../models/teacherModel').schema);
         };
 
-        await mongoose.connect(MONGODB_URI)
+        await mongoose.connect('linkMongoDB')
         .then(() => {console.log('MongoDB Connected')})
         .catch((error)=> console.log(error));
 
