@@ -21,10 +21,9 @@ router.get('/api/v1/students', studentController.getAllStudents);
 router.get('/api/v1/student/id/:id', studentController.getStudentById);
 router.get('/api/v1/student/name/:name', studentController.getStudentByName);
 router.get('/api/v1/student/age/:age', studentController.getStudentByAge);
-router.get('/api/v1/student/age/:age', studentController.getStudentByAge);
 
 /* Update */
-router.put('/api/v1/student/:id', studentController.updateStudentById);
+router.put('/api/v1/student/id/:id', studentController.updateStudentById);
 
 /* Post */
 router.post('/api/v1/students', studentController.createStudent);

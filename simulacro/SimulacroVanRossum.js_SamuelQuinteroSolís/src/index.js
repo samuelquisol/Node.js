@@ -35,7 +35,7 @@ const app = express();
 const port = 3000;
 
 /* 7. Importar sistema de Autentificación */
-const auth = require("./middleware/auth")
+/* const auth = require("./middleware/auth") */
 
 /* 8. Importar conexión a la DB */
 connectDB();
@@ -49,7 +49,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 /* 10. Inicializa la autentificación */
-app.use(auth.initialize())
+/* app.use(auth.initialize()) */
 
 /* 11. Configura las rutas */
 app.use('/', routes);

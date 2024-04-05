@@ -20,14 +20,12 @@ const connectDB = async ()=>{
         }
 
         /* Conexión con la DB */
-        await mongoose.connect('mongodb+srv://samuelquisol:Vskg4Hb9pOZGz6HC@learning-cluster.vazfyls.mongodb.net/')
+        /* await mongoose.connect('mongodb+srv://samuelquisol:Vskg4Hb9pOZGz6HC@learning-cluster.vazfyls.mongodb.net/') */
+        await mongoose.connect('mongodb://samuelquisol:Vskg4Hb9pOZGz6HC@ac-ytfz8c1-shard-00-00.vazfyls.mongodb.net:27017,ac-ytfz8c1-shard-00-01.vazfyls.mongodb.net:27017,ac-ytfz8c1-shard-00-02.vazfyls.mongodb.net:27017/?replicaSet=atlas-xrdpk6-shard-0&ssl=true&authSource=admin')
         .then(console.log('DB Successfully Connected'))
         .catch((error)=>{console.log(error)});
 
-        /* Si la variable de consulta no tiene información */
-        if(Student=== null){
-            await initializeData();
-        }
+        await initializeData();
 
     } catch (error) {
         console.error('Failed to connect to DB:', error);

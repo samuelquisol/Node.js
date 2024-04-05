@@ -24,7 +24,7 @@ const studentController = {
     /* Read */
     getAllStudents: async (req, res)=> {
         try {
-            const students = await User.find();
+            const students = await Student.find();
             res.json(students)
         } catch (error) {
             console.error('Error al obtener Estudiantes:', error);
@@ -33,7 +33,7 @@ const studentController = {
     },
     getStudentById: async (req, res)=> {
         try {
-            const students = await User.find();
+            const students = await Student.find();
             res.json(students)
         } catch (error) {
             console.error('Error al obtener Estudiantes:', error);
@@ -42,7 +42,7 @@ const studentController = {
     },
     getStudentByName: async (req, res)=> {
         try {
-            const students = await User.find();
+            const students = await Student.find();
             res.json(students)
         } catch (error) {
             console.error('Error al obtener Estudiantes:', error);
@@ -51,7 +51,7 @@ const studentController = {
     },
     getStudentByAge: async (req, res)=> {
         try {
-            const students = await User.find();
+            const students = await Student.find();
             res.json(students)
         } catch (error) {
             console.error('Error al obtener Estudiantes:', error);
@@ -62,9 +62,10 @@ const studentController = {
     /* Update */
     updateStudentById: async (req, res) => {
         try {
-            const id = req.params.id;
-            const student = Student.findById(id)
-            res.status(200).json(student);
+            const {id} = req.params;
+            const { userId, name, identification, age } = req.body;
+            const oldStudent = Student.findByIdAndUpdate({id: id}, { userId: userId, name: name, identification: identification, age: age });
+            res.status(201).json(oldStudent)
         } catch (error) {
             console.error('Error al actualizar estudiante:', error);
             res.status(501).json({message: 'Not implemented'});
