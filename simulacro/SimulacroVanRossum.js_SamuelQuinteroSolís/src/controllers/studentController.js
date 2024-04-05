@@ -33,7 +33,8 @@ const studentController = {
     },
     getStudentById: async (req, res)=> {
         try {
-            const students = await Student.find();
+            const {id} = req.params;
+            const students = await Student.findById(id);
             res.json(students)
         } catch (error) {
             console.error('Error al obtener Estudiantes:', error);
@@ -42,7 +43,8 @@ const studentController = {
     },
     getStudentByName: async (req, res)=> {
         try {
-            const students = await Student.find();
+            const {name} = req.params;
+            const students = await Student.find({name: name});
             res.json(students)
         } catch (error) {
             console.error('Error al obtener Estudiantes:', error);
@@ -51,7 +53,8 @@ const studentController = {
     },
     getStudentByAge: async (req, res)=> {
         try {
-            const students = await Student.find();
+            const {age} = req.params;
+            const students = await Student.find({age: age});
             res.json(students)
         } catch (error) {
             console.error('Error al obtener Estudiantes:', error);
@@ -62,10 +65,9 @@ const studentController = {
     /* Update */
     updateStudentById: async (req, res) => {
         try {
-            const {id} = req.params;
-            const { userId, name, identification, age } = req.body;
-            const oldStudent = Student.findByIdAndUpdate({id: id}, { userId: userId, name: name, identification: identification, age: age });
-            res.status(201).json(oldStudent)
+            const { _id, name, identification, age } = req.body;
+            const updateStudent = await Student.findByIdAndUpdate({_id: _id}, { $set: { identification: identification, name: name, age: age} });
+            res.status(201).json(updateStudent)
         } catch (error) {
             console.error('Error al actualizar estudiante:', error);
             res.status(501).json({message: 'Not implemented'});
@@ -77,8 +79,8 @@ const studentController = {
         try {
             const studentData = req.body;
             const newStudent = new Student(studentData);
-            const savedUser = await newStudent.save();
-            res.status(201).json(savedUser)
+            const savedStudent = await newStudent.save();
+            res.status(201).json(savedStudent)
         } catch (error) {
             console.error('Error al crear estudiante:', error);
             res.status(500).json({ message: 'Internal Server Error'});
@@ -88,8 +90,8 @@ const studentController = {
     /* Delete */
     deleteStudentByName: async (req,res) => {
         try {
-            const name = req.params;
-            const deleteStudent = Student.findOneAndDelete({name: name});
+            const {name} = req.body;
+            const deleteStudent = await Student.findOneAndDelete({name: name});
             res.status(202).json(deleteStudent);
         } catch (error) {
             console.error('Error al borrar el usuario:', error);

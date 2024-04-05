@@ -2,6 +2,7 @@
 /* 1. Importar herramienta para trabajar datos */
 /* 2. Importar esquema en variable de consulta */
 /* 3. Conectar con la DB gestionando errores */
+/* 4. Inicializar información */
 
 //-------------------------------------------------------
 
@@ -33,19 +34,18 @@ const connectDB = async ()=>{
     }
 };
 
+/* 4. Inicializar información */
 const initializeData = async () => {
     try {
         await Student.deleteMany();
 
         const studentData = [
             {
-                studentId: '1',
                 name: 'Sam',
                 identification: '0123456789',
                 age: 19
             },
             {
-                studentId: '2',
                 name: 'Jean',
                 identification: '9876543210',
                 age: 17

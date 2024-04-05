@@ -16,14 +16,13 @@ en una variable */
 /* Sería más apropiado usar la fecha de nacimiento
 pero el esquema proporcionado utiliza Number */
 const studentSchema = new mongoose.Schema({
-    studentId:String,
     name: String,
     identification: String,
     age: Number
 })
 
 /* 3. Asignar una key a la variable que contiene el esquema*/
-const Student = mongoose.model('Student',studentSchema);
+const Student = mongoose.model('Student', studentSchema);
 
 /* 4. Exportar esquema */
 module.exports = Student;

@@ -10,18 +10,18 @@
 <body class="bg-dark">
     <div class="container">
         <h1 class="text-center text-light">Actualización de Estudiante</h1>
-        <form action="http://localhost:3000/api/v1/student/update" method="put">
+        <form action="http://localhost:3000/update" method="post">
 
             <div class="text-light mb-3">
-                <label for="studentId" class="text-light form-label">Id del Estudiante</label>
-                <input type="text" class="form-control" id="inputstudentId" name="UserId">
-            </div>
-
+                <label for="_id" class="text-light form-label">Código del Estudiante</label>
+                <input type="text" class="form-control" id="inputName" name="_id">
+            </div>   
+            
             <div class="text-light mb-3">
                 <label for="name" class="text-light form-label">Nombre</label>
                 <input type="text" class="form-control" id="inputName" name="name">
             </div>   
-                 
+
             <div class="text-light mb-3">
                 <label for="identification" class="text-light form-label">Identificación</label>
                 <input type="text" class="form-control" id="inputIdentification" name="identification">

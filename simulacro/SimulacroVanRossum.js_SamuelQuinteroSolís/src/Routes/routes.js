@@ -23,13 +23,13 @@ router.get('/api/v1/student/name/:name', studentController.getStudentByName);
 router.get('/api/v1/student/age/:age', studentController.getStudentByAge);
 
 /* Update */
-router.put('/api/v1/student/id/:id', studentController.updateStudentById);
+router.post('/update', studentController.updateStudentById);
 
 /* Post */
 router.post('/api/v1/students', studentController.createStudent);
 
 /* Delete */
-router.delete('/api/v1/student/:name', studentController.deleteStudentByName);
+router.post('/delete', studentController.deleteStudentByName);
 
 /* 5. Exportar enrutador */
 module.exports = router;
