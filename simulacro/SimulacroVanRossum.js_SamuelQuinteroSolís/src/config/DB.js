@@ -3,6 +3,7 @@
 /* 2. Importar esquema en variable de consulta */
 /* 3. Conectar con la DB gestionando errores */
 /* 4. Inicializar información */
+/* 5. Exportar Conexión */
 
 //-------------------------------------------------------
 
@@ -10,14 +11,14 @@
 const mongoose = require('mongoose');
 
 /* 2. Importar esquema en variable de consulta */
-const Student = mongoose.model('Student', require('../models/studentModel').schema);
+const Student = require('../../../simulacro/SimulacroVanRossum.js_SamuelQuinteroSolís/src/models/studentModel');
 
 /* 3. Conectar con la DB gestionando errores */
 const connectDB = async ()=>{
     try {
         /* Si la variable de consulta no está definida */
         if(!Student){
-            const Student = mongoose.model('Student', require('../models/studentModel'));
+            const Student = mongoose.model('Student', require('../models/studentModel').schema);
         }
 
         /* Conexión con la DB */
@@ -61,4 +62,5 @@ const initializeData = async () => {
     }
 };
 
+/* 5. Exportar Conexión */
 module.exports = connectDB;

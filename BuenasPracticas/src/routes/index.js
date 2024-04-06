@@ -6,6 +6,7 @@ const userController = require('../controllers/userController');
 
 const auth = require("../middleware/auth")
 
+
 // Definición de rutas y asignación a funciones del controlador
 router.get('/api/v1/users', auth.authenticate(), userController.getAllUsers);
 router.get('/api/v1/users/nombre/:name', userController.getUserByName);
@@ -15,5 +16,6 @@ router.patch('/api/v1/users/update/:name', userController.updateUser);
 router.delete('/api/v1/users/delete/:name', userController.deleteUser);
 router.post('/register',userController.register);
 router.post('/login',userController.login);
+
 
 module.exports = router;

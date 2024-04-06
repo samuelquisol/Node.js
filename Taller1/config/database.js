@@ -3,15 +3,15 @@ let Grade = mongose.model('grades', require('../models/gradeModel').schema);
 
 const connectDB = async () => {
     try {
-       /*  if (!Grade){
+        if (!Grade){
             Grade = mongoose.model('Grade', require('../models/gradeModel').schema);
-        } */
+        }
 
         await mongose.connect('mongodb+srv://samuelquisol:Vskg4Hb9pOZGz6HC@learning-cluster.vazfyls.mongodb.net/')
         .then(()=> console.log('MongoDB connected'))
         .catch((error)=> console.log(error));
     
-        /* await initializeData(); */
+        await initializeData();
 
     } catch (error) {
         console.log('failed to connect to MongoDB', error);
@@ -25,15 +25,10 @@ const initializeData = async () => {
 
         const usersData = [
             {
-                Subject: String,
-                id_Student: String,
-                Description: String,
-                grade: Number
-            },
-            {
-                name: 'Adriana',
-                email: 'maria@hotmail.com',
-                password: 'París',
+                Subject: 'Math',
+                id_Student: 'Samuel Quintero Solís',
+                Description: 'Taller 1',
+                grade: 5
             },
         ];
 

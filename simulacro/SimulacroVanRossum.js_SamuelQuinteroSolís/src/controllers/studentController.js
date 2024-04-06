@@ -74,7 +74,7 @@ const studentController = {
         }
     },
 
-    /* Post */
+    /* Create */
     createStudent: async (req,res) => {
         try {
             const studentData = req.body;
